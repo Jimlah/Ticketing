@@ -31,6 +31,12 @@ class DatabaseSeeder extends Seeder
                     'admin_id' => $admin->id,
                 ])
             );
+
+            $customer->tickets()->saveMany(
+                Ticket::factory(rand(1, 5))->closed()->make([
+                    'admin_id' => $admin->id,
+                ])
+            );
         });
 
         Ticket::all()->each(function ($ticket) {

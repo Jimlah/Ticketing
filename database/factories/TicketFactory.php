@@ -30,7 +30,7 @@ class TicketFactory extends Factory
 
     public function closed()
     {
-        $this->state(function () {
+        return $this->state(function () {
             return [
                 'closed_at' => $this->faker->dateTimeBetween('-1 years', 'now')
             ];
