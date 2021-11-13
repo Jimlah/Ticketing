@@ -110,8 +110,7 @@
                                         </div>
                                     </x-col-body>
                                     <x-col-body>
-                                        <span
-                                            class="relative inline-block px-3 py-1 font-semibold leading-tight">
+                                        <span class="relative inline-block px-3 py-1 font-semibold leading-tight">
                                             <span aria-hidden
                                                 class="absolute inset-0  rounded-full opacity-50 {{ $ticket->closed_at ? 'bg-blue-500 text-blue-900' : 'bg-green-500 text-green-900' }}"></span>
                                             <span class="relative">{{ $ticket->status }}</span>
@@ -142,22 +141,20 @@
                                     <x-col-body>
                                         <div class="relative flex items-center">
                                             @foreach ($ticket->agents as $agent)
-                                                <div
+                                                <div @popper({{ $agent->name }})
                                                     class="flex-shrink-0 w-10 h-10 hover:z-50 transition duration-300 relative {{ $loop->first ? '' : '-ml-3' }}">
                                                     <img class="w-full h-full border-2 rounded-full "
                                                         src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80"
                                                         alt="{{ $agent->name }}" />
-                                                    <x-tooltip>{{ $agent->name }}</x-tooltip>
                                                 </div>
                                             @endforeach
-                                            <button id="add-agent" href="#"
+                                            <button id="add-agent" href="#" @popper(Add Agent)
                                                 class="relative flex-shrink-0 -ml-3 text-white transition duration-300 bg-blue-500 rounded-full -z-10 hover:z-50 hover:bg-blue-700">
                                                 <svg class="w-8 h-8" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
                                                         stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                                 </svg>
-                                                <x-tooltip>Add new Agent</x-tooltip>
                                             </button>
                                         </div>
                                     </x-col-body>
@@ -182,7 +179,9 @@
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                                        stroke-width="2"
+                                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                                    </path>
                                                 </svg>
                                                 <span class="relative">Edit</span>
                                             </a>
