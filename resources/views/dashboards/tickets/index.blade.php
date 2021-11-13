@@ -111,9 +111,9 @@
                                     </x-col-body>
                                     <x-col-body>
                                         <span
-                                            class="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
+                                            class="relative inline-block px-3 py-1 font-semibold leading-tight">
                                             <span aria-hidden
-                                                class="absolute inset-0 bg-green-200 rounded-full opacity-50 {{ $ticket->closed_at ? 'bg-blue-200' : 'bg-green-200' }}"></span>
+                                                class="absolute inset-0  rounded-full opacity-50 {{ $ticket->closed_at ? 'bg-blue-500 text-blue-900' : 'bg-green-500 text-green-900' }}"></span>
                                             <span class="relative">{{ $ticket->status }}</span>
                                         </span>
                                     </x-col-body>

@@ -52,9 +52,9 @@ class Ticket extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function isOpen()
+    public function scopeIsOpen( $query)
     {
-        return $this->where('closed_at', null);
+        return $query->whereNull('closed_at');
     }
 
     public function customer()
