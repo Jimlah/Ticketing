@@ -64,7 +64,7 @@
             </x-slot>
             {{ __('Agents') }}
         </x-nav-link>
-        <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
+        <x-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
             <x-slot name="icon">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -75,7 +75,7 @@
             </x-slot>
             {{ __('Categories') }}
         </x-nav-link>
-        <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')">
+        <x-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
             <x-slot name="icon">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">

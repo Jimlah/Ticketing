@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
-use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -15,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        Customer::latest()->paginate(10);
+        $categories = Category::latest()->paginate(10);
+        return view('dashboards.categories.index', compact('categories'));
     }
 
     /**
@@ -25,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboards.categories.create');
     }
 
     /**
@@ -34,14 +35,14 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        Customer::create([
+        Category::create([
             'name' => $request->name,
             'color' => $request->color,
         ]);
 
-        return redirect()->to(route('customers.index'))->with('success', 'Customer created successfully');
+        return redirect()->to(route('categories.index'))->with('success', 'Categories created successfully');
     }
 
     /**
@@ -52,7 +53,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('dashboards.categories.show', compact('category'));
     }
 
     /**
@@ -80,7 +81,7 @@ class CategoryController extends Controller
             'color' => $request->color,
         ]);
 
-        return redirect()->to(route('customers.index'))->with('success', 'Customer updated successfully');
+        return redirect()->to(route('customers.index'))->with('success', 'Categories updated successfully');
     }
 
     /**
