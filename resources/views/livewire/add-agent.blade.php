@@ -11,9 +11,7 @@
                 <x-form.select name="agent_id">
                     @if ($notAttachedAgent)
                         @foreach ($notAttachedAgent as $agent)
-                            @if (!in_array($agent, $data?->agents ?? []))
-                                <option value="{{ $agent->id }}">{{ $agent->name }}</option>
-                            @endif
+                            <option value="{{ $agent->id }}">{{ $agent->name }}</option>
                         @endforeach
                     @endif
                 </x-form.select>
