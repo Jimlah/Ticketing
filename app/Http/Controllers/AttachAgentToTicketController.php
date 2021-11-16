@@ -35,8 +35,12 @@ class AttachAgentToTicketController extends Controller
      */
     public function store(Request $request, Ticket $ticket)
     {
-        $ticket->isOpen()->agents()->attach($request->agent_id);
-        return redirect()->back();
+        if ($ticket->agents()->find(['agent_id', $request->id]) == []) {
+            return redirect()->back()->with('error', 'Agent already attached to this ticket');
+        }
+
+        $ticket->agents()->attach($request->agent_id);
+        return redirect()->back()->with('success', 'Agent added to ticket');
     }
 
     /**

@@ -148,7 +148,8 @@
                                                         alt="{{ $agent->name }}" />
                                                 </div>
                                             @endforeach
-                                            <button id="add-agent" href="#" @popper(Add Agent)
+                                            <button @popper(Add Agent)
+                                                onclick="window.livewire.emitTo('add-agent', 'show', {{ $ticket->id }})"
                                                 class="relative flex-shrink-0 -ml-3 text-white transition duration-300 bg-blue-500 rounded-full -z-10 hover:z-50 hover:bg-blue-700">
                                                 <svg class="w-8 h-8" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -196,5 +197,5 @@
             </div>
         </div>
     </div>
-    {{-- @livewire('add-agent-to-ticket') --}}
+    @livewire('add-agent')
 </x-app-layout>
