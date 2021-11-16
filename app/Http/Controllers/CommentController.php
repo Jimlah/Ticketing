@@ -37,7 +37,12 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request, Ticket $ticket)
     {
+        if ($ticket->closed_at) {
+            return redirect()->back()->with('error', 'Ticket is closed');
+        }
+
         $ticket->addComment($request->content);
+        return redirect()->back()->with('success', 'Comment added successfully');
     }
 
     /**
@@ -71,7 +76,12 @@ class CommentController extends Controller
      */
     public function update(CommentRequest $request, Ticket $ticket, Comment $comment)
     {
+        if ($ticket->closed_at) {
+            return redirect()->back()->with('error', 'Ticket is closed');
+        }
+
         $comment->update($request->content);
+        return redirect()->back();
     }
 
     /**

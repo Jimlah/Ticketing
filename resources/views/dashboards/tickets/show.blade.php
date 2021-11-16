@@ -40,6 +40,9 @@
                             </div>
                         </li>
                     @endforeach
+                    <li>
+                        @livewire('add-comment', ['url' => route('comments.store', $ticket->id)])
+                    </li>
                 </ul>
 
             </div>
