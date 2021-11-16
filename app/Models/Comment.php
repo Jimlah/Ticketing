@@ -16,6 +16,11 @@ class Comment extends Model
         'content',
     ];
 
+    public function getCreatedAtAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['created_at'])->diffForHumans();
+    }
+
 
     public function ticket()
     {

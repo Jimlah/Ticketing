@@ -868,6 +868,12 @@ select {
 .z-40 {
 	z-index: 40;
 }
+.col-span-1 {
+	grid-column: span 1 / span 1;
+}
+.col-span-4 {
+	grid-column: span 4 / span 4;
+}
 .mx-auto {
 	margin-left: auto;
 	margin-right: auto;
@@ -973,6 +979,9 @@ select {
 }
 .mt-6 {
 	margin-top: 1.5rem;
+}
+.mb-2 {
+	margin-bottom: 0.5rem;
 }
 .block {
 	display: block;
@@ -1160,6 +1169,9 @@ select {
 .flex-wrap {
 	flex-wrap: wrap;
 }
+.items-start {
+	align-items: flex-start;
+}
 .items-end {
 	align-items: flex-end;
 }
@@ -1175,6 +1187,9 @@ select {
 .justify-between {
 	justify-content: space-between;
 }
+.gap-5 {
+	gap: 1.25rem;
+}
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
@@ -1184,6 +1199,16 @@ select {
 	--tw-space-y-reverse: 0;
 	margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
 	margin-bottom: calc(0.5rem * var(--tw-space-y-reverse));
+}
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+	--tw-space-y-reverse: 0;
+	margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+	margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+	--tw-divide-y-reverse: 0;
+	border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+	border-bottom-width: calc(1px * var(--tw-divide-y-reverse));
 }
 .overflow-hidden {
 	overflow: hidden;
@@ -1875,6 +1900,22 @@ select {
 }
 @media (min-width: 640px) {
 
+	.sm\:col-span-4 {
+		grid-column: span 4 / span 4;
+	}
+
+	.sm\:col-span-3 {
+		grid-column: span 3 / span 3;
+	}
+
+	.sm\:col-span-6 {
+		grid-column: span 6 / span 6;
+	}
+
+	.sm\:col-span-2 {
+		grid-column: span 2 / span 2;
+	}
+
 	.sm\:-mx-8 {
 		margin-left: -2rem;
 		margin-right: -2rem;
@@ -1910,6 +1951,18 @@ select {
 
 	.sm\:flex-1 {
 		flex: 1 1 0%;
+	}
+
+	.sm\:grid-cols-4 {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.sm\:grid-cols-5 {
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+	}
+
+	.sm\:grid-cols-6 {
+		grid-template-columns: repeat(6, minmax(0, 1fr));
 	}
 
 	.sm\:flex-row {
@@ -1980,6 +2033,10 @@ select {
 
 	.md\:grid-cols-2 {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.md\:grid-cols-4 {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
 	}
 
 	.md\:border-t-0 {

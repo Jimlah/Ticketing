@@ -19,7 +19,7 @@ class TicketFactory extends Factory
     {
         return [
             'subject' => $this->faker()->sentence(),
-            'content' => $this->faker()->paragraph(),
+            'content' => $this->faker()->paragraph(rand(5, 10)),
             'admin_id' => 1,
             'priority_id' => Priority::all()->random()->id,
             'category_id' => Category::all()->random()->id,

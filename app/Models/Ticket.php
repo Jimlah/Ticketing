@@ -29,6 +29,11 @@ class Ticket extends Model
         'comments.user'
     ];
 
+    public function getCreatedAtAttribute()
+    {
+        return \Carbon\Carbon::parse($this->attributes['created_at'])->diffForHumans();
+    }
+
     public function getStatusAttribute()
     {
         if ($this->closed_at) {
@@ -52,7 +57,7 @@ class Ticket extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function scopeIsOpen( $query)
+    public function scopeIsOpen($query)
     {
         return $query->whereNull('closed_at');
     }
