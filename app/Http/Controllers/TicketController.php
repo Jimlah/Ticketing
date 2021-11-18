@@ -19,8 +19,8 @@ class TicketController extends Controller
     public function index(Request $request)
     {
 
-        $tickets = Ticket::when($request->category, function ($query, $category) {
-            $query->where('category_id', 'like', '%' . $category . '%');
+        $tickets = Ticket::when($request->sub_category, function ($query, $category) {
+            $query->where('sub_category_id', 'like', '%' . $category . '%');
         })
             ->when($request->priority, function ($query, $priority) {
                 $query->where('priority_id', 'like', '%' . $priority . '%');
@@ -71,7 +71,7 @@ class TicketController extends Controller
             'subject' => $request->subject,
             'content' => $request->content,
             'admin_id' => auth()->id(),
-            'category_id' => $request->category_id,
+            'sub_category_id' => $request->sub_category_id,
             'priority_id' => $request->priority_id,
         ]);
 
@@ -115,7 +115,7 @@ class TicketController extends Controller
         $ticket->isOpen()->update([
             'subject' => $request->subject,
             'content' => $request->content,
-            'category_id' => $request->category_id,
+            'sub_category_id' => $request->category_id,
             'priority_id' => $request->priority_id,
         ]);
 

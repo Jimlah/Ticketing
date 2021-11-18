@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Category;
 use App\Models\Priority;
+use App\Models\SubCategory;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\WithFaker;
 
@@ -22,7 +23,7 @@ class TicketFactory extends Factory
             'content' => $this->faker()->paragraph(rand(5, 10)),
             'admin_id' => 1,
             'priority_id' => Priority::all()->random()->id,
-            'category_id' => Category::all()->random()->id,
+            'sub_category_id' => SubCategory::all()->random()->id,
             'closed_at' => null
         ];
     }

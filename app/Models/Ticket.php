@@ -18,13 +18,14 @@ class Ticket extends Model
         'subject',
         'content',
         'priority_id',
-        'category_id'
+        'sub_category_id'
     ];
 
     protected $with = [
         'customer',
         'admin',
-        'category',
+        'sub_category',
+        'sub_category.category',
         'agents',
         'comments.user'
     ];
@@ -42,9 +43,9 @@ class Ticket extends Model
         return 'open';
     }
 
-    public function category()
+    public function sub_category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(SubCategory::class);
     }
 
     public function priority()

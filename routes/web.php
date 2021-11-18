@@ -6,6 +6,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PriorityController;
+use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\TicketController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +30,10 @@ Route::get('/dashboard', DashboardController::class)->middleware(['auth'])->name
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
 
     Route::resource('categories', CategoryController::class)->except(['show']);
+    Route::prefix('categories')->group(function () {
+        Route::resource('/{category}/sub-category', SubCategoryController::class)->except(['show']);
+    });
+
     Route::resource('priorities', PriorityController::class)->except(['show']);
 
     Route::resource('tickets', TicketController::class);

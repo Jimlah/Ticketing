@@ -2,10 +2,10 @@
     <div class="container px-4 mx-auto sm:px-8">
         <div class="py-8">
             <x-slot name="header">
-                {{ __('Categories') }}
+                {{ __($category->name) }}
             </x-slot>
             <div class="flex flex-col justify-between my-2 sm:flex-row">
-                <a href="{{ route('categories.create') }}"
+                <a href="{{ route('sub-category.create', $category) }}"
                     class="flex items-center self-end px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-r hover:bg-gray-400">
                     <span>
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -14,7 +14,7 @@
                                 d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
                     </span>
-                    <span> New category</span>
+                    <span> New Sub Category</span>
                 </a>
             </div>
             <div class="px-4 py-4 -mx-4 overflow-x-auto sm:-mx-8 sm:px-8">
@@ -23,7 +23,7 @@
                         <thead>
                             <tr>
                                 <x-col-head>
-                                    Name
+                                    Content
                                 </x-col-head>
                                 <x-col-head>
                                     Color
@@ -34,22 +34,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($category->sub_categories as $sub_category)
                                 <tr>
                                     <x-col-body>
-                                        <p class="text-gray-900 uppercase whitespace-no-wrap">{{ $category->name }}</p>
+                                        <p class="text-gray-900 uppercase whitespace-no-wrap">
+                                            {{ $sub_category->content }}</p>
                                     </x-col-body>
 
                                     <x-col-body>
                                         <span class="flex items-center justify-start space-x-2">
                                             <span class="w-10 h-10"
-                                                style="background-color: {{ $category->color }}"></span>
-                                            <span class="uppercase">{{ $category->color }}</span>
+                                                style="background-color: {{ $sub_category->color }}"></span>
+                                            <span class="uppercase">{{ $sub_category->color }}</span>
                                         </span>
                                     </x-col-body>
                                     <x-col-body>
                                         <div class="flex items-center">
-                                            <a href="{{ route('categories.edit', $category) }}"
+                                            <a href="{{ route('sub-category.edit', [$category, $sub_category]) }}"
                                                 class="relative inline-flex items-center px-3 py-1 font-semibold leading-tight text-white bg-green-500 rounded-sm hover:bg-opacity-50">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -60,22 +61,13 @@
                                                 </svg>
                                                 <span class="relative">Edit</span>
                                             </a>
-                                            <a href="{{ route('sub-category.index', $category) }}"
-                                                class="relative inline-flex items-center px-3 py-1 font-semibold leading-tight text-white bg-blue-500 rounded-sm hover:bg-opacity-50">
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor"
-                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                                                </svg>
-                                                <span class="relative">View</span>
-                                            </a>
                                         </div>
                                     </x-col-body>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
-                    <x-paginate :paginator="$categories" />
+                    <x-paginate :paginator="$sub_categories" />
                 </div>
             </div>
         </div>
