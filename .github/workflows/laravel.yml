@@ -26,5 +26,5 @@ jobs:
           command: ls -a
           host: ${{ secrets.HOST }}
           user: ${{ secrets.FTP_USERNAME }}
-          privateKey: ${{ secrets.PRIVATE_KEY}}
+          key: ${{ secrets.PRIVATE_KEY}}
           port: 21098
