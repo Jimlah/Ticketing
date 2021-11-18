@@ -28,3 +28,4 @@ jobs:
           user: ${{ secrets.FTP_USERNAME }}
           key: ${{ secrets.PRIVATE_KEY}}
           port: 21098
+          args: "-vvv"
