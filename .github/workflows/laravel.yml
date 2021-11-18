@@ -19,7 +19,7 @@ jobs:
             git pull
             cp .env.production .env
             composer install
-            php artisan migrate
+            php artisan migrate:fresh
             composer install --optimize-autoloader --no-dev
             php artisan config:cache
             php artisan route:cache
