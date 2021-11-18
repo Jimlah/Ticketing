@@ -27,3 +27,4 @@ jobs:
           host: ${{ secrets.HOST }}
           username: meednet1
           password: ${{ secrets.PASSWORD }}
+          port: 	21098
