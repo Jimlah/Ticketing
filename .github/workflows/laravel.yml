@@ -11,19 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
-      - name: FTP Deploy Actions
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
-        with:
-          ftp-server: ${{ secrets.FTP_SERVER }}
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
       - name: ls -a via ssh
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: ls -a
+          command: |
+            ls -a
+            cd repositories/Ticketing
+            composer install
           host: ${{ secrets.HOST }}
           username: meednet1
           password: ${{ secrets.PASSWORD }}
