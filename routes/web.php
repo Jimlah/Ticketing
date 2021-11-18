@@ -27,7 +27,8 @@ Route::get('/dashboard', DashboardController::class)->middleware(['auth'])->name
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
 
-    Route::resource('categories', CategoryController::class);
+    Route::resource('categories', CategoryController::class)->except(['show']);
+    Route::resource('priorities', CategoryController::class)->except(['show']);
 
     Route::resource('tickets', TicketController::class);
     Route::group(['prefix' => 'tickets'], function () {

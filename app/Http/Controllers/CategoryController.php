@@ -64,7 +64,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('dashboards.categories.edit', compact('category'));
     }
 
     /**
@@ -81,7 +81,7 @@ class CategoryController extends Controller
             'color' => $request->color,
         ]);
 
-        return redirect()->to(route('customers.index'))->with('success', 'Categories updated successfully');
+        return redirect()->to(route('categories.index'))->with('success', 'Categories updated successfully');
     }
 
     /**
@@ -94,6 +94,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->to(route('customers.index'))->with('success', 'Customer deleted successfully');
+        return redirect()->to(route('categories.index'))->with('success', 'Category deleted successfully');
     }
 }

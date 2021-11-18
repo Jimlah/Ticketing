@@ -49,15 +49,6 @@
                                     </x-col-body>
                                     <x-col-body>
                                         <div class="flex items-center">
-                                            <a href="{{ route('categories.show', $category) }}"
-                                                class="relative inline-flex items-center px-3 py-1 font-semibold leading-tight text-white bg-blue-500 rounded-sm hover:bg-opacity-50">
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor"
-                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                                                </svg>
-                                                <span class="relative">View</span>
-                                            </a>
                                             <a href="{{ route('categories.edit', $category) }}"
                                                 class="relative inline-flex items-center px-3 py-1 font-semibold leading-tight text-white bg-green-500 rounded-sm hover:bg-opacity-50">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor"
