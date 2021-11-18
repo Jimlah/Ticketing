@@ -28,3 +28,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           passphrase: ${{ secrets.PASSPHRASE }}
           privateKey: ${{ secrets.PRIVATE_KEY}}
+          port: 21098
