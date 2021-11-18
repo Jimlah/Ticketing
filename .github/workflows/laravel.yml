@@ -20,7 +20,7 @@ jobs:
             cp .env.production .env
             composer install
             php artisan key:generate
-            php artisan migrate:fresh
+            php artisan migrate
             composer install --optimize-autoloader --no-dev
             php artisan config:cache
             php artisan route:cache
