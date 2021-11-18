@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PriorityRequest;
 use App\Models\Priority;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class PriorityController extends Controller
      */
     public function index()
     {
-        //
+        $priorities = Priority::paginate(10);
+        return view('dashboards.priorities.index', compact('priorities'));
     }
 
     /**
@@ -24,7 +26,7 @@ class PriorityController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboards.priorities.create');
     }
 
     /**
@@ -33,9 +35,13 @@ class PriorityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PriorityRequest $request)
     {
-        //
+        $priority = new Priority();
+        $priority->name = $request->name;
+        $priority->save();
+
+        return redirect()->route('priority.index')->with('success', 'Priority created successfully');
     }
 
     /**
@@ -57,7 +63,7 @@ class PriorityController extends Controller
      */
     public function edit(Priority $priority)
     {
-        //
+        return view('dashboards.priorities.edit', compact('priority'));
     }
 
     /**
@@ -69,7 +75,10 @@ class PriorityController extends Controller
      */
     public function update(Request $request, Priority $priority)
     {
-        //
+        $priority->name = $request->name;
+        $priority->save();
+
+        return redirect()->route('priority.index')->with('success', 'Priority updated successfully');
     }
 
     /**
@@ -80,6 +89,8 @@ class PriorityController extends Controller
      */
     public function destroy(Priority $priority)
     {
-        //
+        $priority->delete();
+
+        return redirect()->route('priority.index')->with('success', 'Priority deleted successfully');
     }
 }
