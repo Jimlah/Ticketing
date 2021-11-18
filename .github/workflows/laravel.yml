@@ -21,11 +21,10 @@ jobs:
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
       - name: ls -a via ssh
-        uses: garygrossgarten/github-action-ssh@release
+        uses: fifsky/ssh-action@master
         with:
           command: ls -a
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+          user: ${{ secrets.FTP_USERNAME }}
           privateKey: ${{ secrets.PRIVATE_KEY}}
           port: 21098
