@@ -16,6 +16,7 @@ jobs:
         with:
           command: |
             cd repositories/Ticketing
+            git pull
             cp .env.production .env
             composer install
             php artisan migrate
