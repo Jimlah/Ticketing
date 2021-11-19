@@ -22,14 +22,7 @@
                 <x-form.input type="text" id="subject" name="subject" placeholder="Subject"
                     value="{{ old('subject') }}" />
             </x-Form.InputWrapper>
-            <x-Form.InputWrapper name="category_id">
-                <x-form.label for="category">{{ __('Category') }}</x-form.label>
-                <x-form.select name="category_id">
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach
-                </x-form.select>
-            </x-Form.InputWrapper>
+            @livewire('sub-category', [$categories])
             <x-Form.InputWrapper name="priority_id">
                 <x-form.label for="priority">{{ __('Priority') }}</x-form.label>
                 <x-form.select name="priority_id">
