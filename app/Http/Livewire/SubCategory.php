@@ -15,7 +15,7 @@ class SubCategory extends Component
     public function mount($data = null)
     {
         $this->categories = Category::all();
-        if (request()->url() == route('tickets.edit', [$data?->id??0])) {
+        if (request()->url() == route('tickets.edit', [$data?->id ?? 0])) {
             $this->subCategoryId = $data->sub_category_id;
             $this->categoryId = $data->sub_category->category_id;
         }
