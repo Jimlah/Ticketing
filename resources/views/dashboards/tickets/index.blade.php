@@ -117,26 +117,20 @@
                                         </span>
                                     </x-col-body>
                                     <x-col-body>
-                                        <span
-                                            class="relative inline-flex items-center font-semibold leading-tight text-white bg-opacity-50 rounded-sm"
-                                            style="background-color: {{ $ticket->sub_category?->category->color }};">
+                                        <span class="relative inline-block px-3 py-1 font-semibold leading-tight"
+                                            style="color: {{ $ticket->sub_category?->category->color }}">
+                                            <span aria-hidden class="absolute inset-0 rounded-full opacity-30"
+                                                style="background-color: {{ $ticket->sub_category?->category->color }}"></span>
                                             <span
-                                                class="relative px-3 py-1">{{ $ticket->sub_category?->category->name }}</span>
-                                            <button class="p-1 hover:opacity-50">
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor"
-                                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                                                </svg>
-                                            </button>
+                                                class="relative">{{ $ticket->sub_category?->category->name }}</span>
                                         </span>
                                     </x-col-body>
                                     <x-col-body>
-                                        <span
-                                            class="relative inline-block px-3 py-1 font-semibold leading-tight text-green-900">
-                                            <span aria-hidden
-                                                class="absolute inset-0 bg-green-200 rounded-full opacity-50"></span>
-                                            <span class="relative">{{ $ticket->priority->name }}</span>
+                                        <span class="relative inline-block px-3 py-1 font-semibold leading-tight"
+                                            style="color: {{ $ticket->sub_category?->category->color }}">
+                                            <span aria-hidden class="absolute inset-0 rounded-full opacity-30"
+                                                style="background-color: {{ $ticket->priority?->color }}"></span>
+                                            <span class="relative">{{ $ticket->priority?->name }}</span>
                                         </span>
                                     </x-col-body>
                                     <x-col-body>
