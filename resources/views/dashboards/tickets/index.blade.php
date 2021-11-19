@@ -41,7 +41,7 @@
                             </svg>
                         </span>
                         <input placeholder="Search" type="search" name="search" value="{{ request()->get('search') }}"
-                            class="block w-full py-2 pl-8 pr-6 text-sm text-gray-700 placeholder-gray-400 bg-white border border-b border-gray-400 rounded-l rounded-r appearance-none sm:rounded-l-none focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
+                            class="block w-full h-full py-2 pl-8 pr-6 text-sm text-gray-700 placeholder-gray-400 bg-white border border-b border-gray-400 rounded-l rounded-r appearance-none sm:rounded-l-none focus:bg-white focus:placeholder-gray-600 focus:text-gray-700 focus:outline-none" />
                     </div>
                     <button type="submit"
                         class="px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-r hover:bg-gray-400">
@@ -50,7 +50,7 @@
                 </form>
 
                 <a href="{{ route('tickets.create') }}"
-                    class="flex items-center px-4 py-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-r hover:bg-gray-400">
+                    class="flex items-center px-4 py-2 mt-2 text-sm font-semibold text-gray-800 bg-gray-300 rounded-r sm:mt-0 hover:bg-gray-400">
                     <span>
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -120,7 +120,8 @@
                                         <span
                                             class="relative inline-flex items-center font-semibold leading-tight text-white bg-opacity-50 rounded-sm"
                                             style="background-color: {{ $ticket->sub_category?->category->color }};">
-                                            <span class="relative px-3 py-1">{{ $ticket->sub_category?->category->name }}</span>
+                                            <span
+                                                class="relative px-3 py-1">{{ $ticket->sub_category?->category->name }}</span>
                                             <button class="p-1 hover:opacity-50">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor"
                                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

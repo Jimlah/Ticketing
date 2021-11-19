@@ -974,6 +974,9 @@ select {
 .mt-6 {
 	margin-top: 1.5rem;
 }
+.mb-2 {
+	margin-bottom: 0.5rem;
+}
 .block {
 	display: block;
 }
@@ -1973,6 +1976,10 @@ select {
 
 	.sm\:mb-0 {
 		margin-bottom: 0px;
+	}
+
+	.sm\:mt-0 {
+		margin-top: 0px;
 	}
 
 	.sm\:flex {
