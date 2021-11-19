@@ -22,7 +22,7 @@
                 <x-form.input type="text" id="subject" name="subject" placeholder="Subject"
                     value="{{ old('subject') }}" />
             </x-Form.InputWrapper>
-            @livewire('sub-category', [$categories])
+            @livewire('sub-category')
             <x-Form.InputWrapper name="priority_id">
                 <x-form.label for="priority">{{ __('Priority') }}</x-form.label>
                 <x-form.select name="priority_id">

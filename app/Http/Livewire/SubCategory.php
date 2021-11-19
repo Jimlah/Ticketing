@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Category;
 use Livewire\Component;
 
 class SubCategory extends Component
@@ -11,9 +12,14 @@ class SubCategory extends Component
     public $sub_categories;
     public $subCategoryId;
 
-    public function mount($categories)
+    public function mount($data = null)
     {
-        $this->categories = $categories;
+        $this->categories = Category::all();
+        if (request()->url() == route('tickets.edit', [$data?->id??0])) {
+            $this->subCategoryId = $data->sub_category_id;
+            $this->categoryId = $data->sub_category->category_id;
+        }
+
 
         if ($this->categoryId != '') {
             $this->sub_categories = $this->categories->find($this->categoryId)?->sub_categories ?? [];
