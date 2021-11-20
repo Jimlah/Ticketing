@@ -7,7 +7,10 @@ use App\Models\Category;
 use App\Models\Customer;
 use App\Models\Priority;
 use App\Models\Ticket;
+use App\Models\User;
+use App\Notifications\NewTicketCreated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class TicketController extends Controller
 {
@@ -67,13 +70,18 @@ class TicketController extends Controller
             ]
         );
 
-        $customer->tickets()->create([
+        $ticket = $customer->tickets()->create([
             'subject' => $request->subject,
             'content' => $request->content,
             'admin_id' => auth()->id(),
             'sub_category_id' => $request->sub_category_id,
             'priority_id' => $request->priority_id,
         ]);
+
+        Notification::send(
+            User::where('is_admin', true)->get(),
+            new NewTicketCreated($ticket)
+        );
 
         return redirect()->to(route('tickets.index'))->with('success', 'Ticket created successfully');
     }
