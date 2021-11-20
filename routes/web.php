@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AttachAgentToTicketController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChangeTicketStatusController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
@@ -38,6 +39,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth']], function () {
 
     Route::resource('tickets', TicketController::class);
     Route::group(['prefix' => 'tickets'], function () {
+        Route::get('/{ticket}/status', ChangeTicketStatusController::class)->name('tickets.status');
         Route::resource('/{ticket}/agents', AttachAgentToTicketController::class)->only(['store', 'update', 'destroy']);
         Route::resource('/{ticket}/comments', CommentController::class);
     });
