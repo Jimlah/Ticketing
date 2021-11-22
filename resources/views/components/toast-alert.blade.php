@@ -1,6 +1,5 @@
 <!-- This is an example component -->
 <div class="fixed top-0 right-0 z-50 max-w-lg mx-auto mt-5 mr-5">
-
     @if (session('info'))
         <div class="flex p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg" role="alert">
             <svg class="inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +54,7 @@
         </div>
     @endif
 
-    @if (session('status'))
+    @if (session('message'))
         <div class="flex p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg" role="alert">
             <svg class="inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd"
@@ -63,7 +62,7 @@
                     clip-rule="evenodd"></path>
             </svg>
             <div>
-                <span class="font-medium">Danger alert!</span> {{ session('status') }}.
+                <span class="font-medium">Danger alert!</span> {{ session('message') }}.
             </div>
         </div>
     @endif
