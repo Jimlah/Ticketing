@@ -3,12 +3,12 @@
         {{ __($category->name) }}
     </x-slot>
     <div class="p-6 overflow-hidden bg-white shadow-sm sm:rounded-lg">
-        <form action="{{ route('sub-category.store', $category) }}" method="POST" class="flex flex-col w-full space-y-4">
+        <form action="{{ route('sub-category.store', $category) }}" method="POST"
+            class="flex flex-col w-full space-y-4">
             @csrf
-            <x-Form.InputWrapper name="content">
-                <x-form.label for="content">{{ __('Content') }}</x-form.label>
-                <x-form.input type="text" id="content" name="content" placeholder="content"
-                    value="{{ old('content') }}" />
+            <x-Form.InputWrapper name="name">
+                <x-form.label for="name">{{ __('Name') }}</x-form.label>
+                <x-form.input type="text" id="name" name="name" placeholder="Name" value="{{ old('name') }}" />
             </x-Form.InputWrapper>
             <x-Form.InputWrapper name="color">
                 <x-form.label for="color">{{ __('Color') }}</x-form.label>
