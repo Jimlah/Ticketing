@@ -5,10 +5,17 @@ namespace App\Policies;
 use App\Models\SubCategory;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Whoops\Run;
 
 class SubCategoryPolicy
 {
     use HandlesAuthorization;
+
+
+    public function before(User $user, $ability)
+    {
+        return $user->is_admin ? true : null;
+    }
 
     /**
      * Determine whether the user can view any models.
@@ -18,7 +25,6 @@ class SubCategoryPolicy
      */
     public function viewAny(User $user)
     {
-        //
     }
 
     /**
@@ -30,7 +36,7 @@ class SubCategoryPolicy
      */
     public function view(User $user, SubCategory $subCategory)
     {
-        //
+        return $user ? $this->allow() : $this->deny('You do not have authority');
     }
 
     /**
@@ -41,7 +47,7 @@ class SubCategoryPolicy
      */
     public function create(User $user)
     {
-        //
+
     }
 
     /**
@@ -53,7 +59,6 @@ class SubCategoryPolicy
      */
     public function update(User $user, SubCategory $subCategory)
     {
-        //
     }
 
     /**
