@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class AgentAttachedToTicket extends Notification
+class AgentAttachedToTicket extends Notification implements ShouldQueue
 {
     use Queueable;
 
@@ -17,7 +17,7 @@ class AgentAttachedToTicket extends Notification
      *
      * @return void
      */
-    public function __construct(Ticket $ticket)
+    public function __construct(Public Ticket $ticket)
     {
         $this->ticket = $ticket;
     }
