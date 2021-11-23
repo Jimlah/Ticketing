@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Models\User;
+use App\Notifications\AgentAttachedToTicket;
 use Illuminate\Http\Request;
 
 class AttachAgentToTicketController extends Controller
@@ -40,6 +42,10 @@ class AttachAgentToTicketController extends Controller
         }
 
         $ticket->agents()->attach($request->agent_id);
+
+        User::find($request->agent_id)
+            ->notify(new AgentAttachedToTicket($ticket));
+
         return redirect()->back()->with('success', 'Agent added to ticket');
     }
 
