@@ -39,9 +39,10 @@ class PriorityController extends Controller
     {
         $priority = new Priority();
         $priority->name = $request->name;
+        $priority->color = $request->color;
         $priority->save();
 
-        return redirect()->route('priority.index')->with('success', 'Priority created successfully');
+        return redirect()->route('priorities.index')->with('success', 'Priority created successfully');
     }
 
     /**
