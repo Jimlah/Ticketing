@@ -26,8 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
-        Log::info('Scheduled job ran');
-        // $schedule->command('queue:work')->everyMinute()->withoutOverlapping();
+        $schedule->command('queue:work')->everyMinute()->withoutOverlapping();
     }
 
     /**
