@@ -41,7 +41,8 @@ class NewTicketCreated extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->line('New ticket ')
+            ->subject('Ticket #' . $this->ticket->id . ' has been created')
+            ->line('Ticket #' . $this->ticket->id . ' has been created')
             ->action('View Ticket', route('tickets.show', $this->ticket->id))
             ->line('Thank you for using our application!');
     }
