@@ -11,7 +11,7 @@ class UserPolicy
 
     public function before(User $user, $ability)
     {
-        return $user->is_admin ? true : $this->deny('You are not admin');
+        return $user->id === 1  ? true : $this->deny('You are not admin');
     }
 
     /**
