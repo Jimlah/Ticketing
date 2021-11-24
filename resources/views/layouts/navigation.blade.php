@@ -42,7 +42,7 @@
             </x-slot>
             {{ __('Tickets') }}
         </x-nav-link>
-        @can('viewAny', User::class)
+        @can('viewAny', App\Models\User::class)
             <x-nav-link href="{{ route('users.index') }}" :active="request()->routeIs('users.index')">
                 <x-slot name="icon">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
