@@ -44,7 +44,7 @@ class AgentAttachedToTicket extends Notification implements ShouldQueue
         return (new MailMessage)
             ->subject('Ticket #' . $this->ticket->id . ' has been assigned to you')
             ->line('Ticket #' . $this->ticket->id . ' has been assigned to you')
-            ->action('View Ticket', url('/tickets/' . $this->ticket->id))
+            ->action('View Ticket', route('tickets.show', $this->ticket->id))
             ->line('Thank you for using our application!');
     }
 
