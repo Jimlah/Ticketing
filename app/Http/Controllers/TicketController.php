@@ -62,11 +62,11 @@ class TicketController extends Controller
     {
         $customer = Customer::firstOrCreate(
             [
-                'phone' => $request->phone,
+                'email' => $request->email,
             ],
             [
                 'name' => $request->name,
-                'email' => $request->email,
+                'phone' => $request->phone,
             ]
         );
 
