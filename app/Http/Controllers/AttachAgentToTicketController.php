@@ -43,9 +43,6 @@ class AttachAgentToTicketController extends Controller
 
         $ticket->agents()->attach($request->agent_id);
 
-        User::find($request->agent_id)
-            ->notify(new AgentAttachedToTicket($ticket));
-
         return redirect()->to(route('tickets.index'))->with('success', 'Agent added to ticket');
     }
 
